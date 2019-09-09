@@ -4,12 +4,14 @@ import { Container, Row, Col } from 'reactstrap'
 import Header from './Header'
 import '../index.css';
 
-function App() {
-  return (
-    <Router>
-        <Header />
-    </Router>
-  );
+class App extends Component  {
+  render() {
+    return (
+      <Router>
+          <Header />
+      </Router>
+    );
+  }
 }
 
 export default App;
