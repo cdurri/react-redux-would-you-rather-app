@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Navbar, NavbarToggler, Nav, NavbarBrand, NavItem } from 'reactstrap'
 import { Container, Row, Col } from 'reactstrap'
+import LoggedIn from './LoggedIn'
 
 export default function Navigation () {
   return (
@@ -23,6 +24,7 @@ export default function Navigation () {
             </NavLink>
           </NavItem>
         </Nav>
+        <LoggedIn />
     </Navbar>
   )
 }
