@@ -27,7 +27,6 @@ const SignInCard = () => {
           </CardBody>
         </CardHeader>
       </Card>
-      <DiReact />
     </div>
   )
 }
