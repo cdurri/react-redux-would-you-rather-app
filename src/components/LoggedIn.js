@@ -9,6 +9,7 @@ export default function LoggedIn () {
         <img
           src='https://placeimg.com/30/30/people'
           className='logged-in-avatar'
+          alt='user avatar'
         />
       </span>
       <span>Logout</span>

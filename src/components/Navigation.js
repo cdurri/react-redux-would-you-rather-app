@@ -25,6 +25,7 @@ export default function Navigation () {
           </NavItem>
         </Nav>
         <LoggedIn />
+        
     </Navbar>
   )
 }
