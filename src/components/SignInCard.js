@@ -6,14 +6,14 @@ import Logo from '../images/react.png'
 
 class SignInCard extends Component {
 
+  handleSignIn = (e) => {
+    {/* todo: handle when sign in button is clicked  */}
+  }
+
   render() {
     const { users } = this.props
 
-    console.log(this.props.users)
-
     const { name } = users
-
-    console.log(name)
 
     return (
       <div>

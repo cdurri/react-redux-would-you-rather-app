@@ -16,11 +16,20 @@ class App extends Component  {
       <Router>
         <Fragment>
           <Header />
-          <Login />
+          {this.props.loggedout === true
+            ? <Login />
+            : <div>Signed In!</div>
+          }
         </Fragment>
       </Router>
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps({ authedUser }) {
+  return {
+    loggedout: authedUser === null
+  }
+}
+
+export default connect(mapStateToProps)(App);
