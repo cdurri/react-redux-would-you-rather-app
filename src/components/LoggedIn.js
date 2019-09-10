@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 
-export default function LoggedIn () {
+const LoggedIn = () => {
   return (
     <div className='logged-in'>
       <span>Hello, Sarah Edo</span>
@@ -16,3 +16,5 @@ export default function LoggedIn () {
     </div>
   )
 }
+
+export default LoggedIn
