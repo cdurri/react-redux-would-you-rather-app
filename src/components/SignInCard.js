@@ -24,8 +24,6 @@ class SignInCard extends Component {
     e.preventDefault()
 
     this.props.dispatch(setAuthedUser(this.state.userId))
-
-    //console.log(e.target.value)
   }
 
   render() {
