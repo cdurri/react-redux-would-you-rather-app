@@ -5,3 +5,39 @@ body {
 .card-img {
   width: 200px;
 }
+
+.login-card {
+  margin-top: 20px;
+}
+
+.login-card .card-header {
+  text-align: center;
+  font-weight: 600;
+}
+
+.login-card .card-header .card-text {
+  font-weight: 400;
+}
+
+.login-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card form {
+  width: 100%;
+  text-align: center;
+}
+
+.login-card form label {
+  font-size: 28px;
+  color: #3ECEA7;
+}
+
+.login-card .btn-sign-in {
+  width: 100%;
+  border: 0;
+  background: #3ECEA7;
+}
