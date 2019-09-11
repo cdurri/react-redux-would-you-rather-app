@@ -1,17 +1,38 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { handleInitialData } from '../actions/shared'
 import { Container, Row, Col } from 'reactstrap'
-import Header from './Header'
 import '../index.css';
+import Header from './Header'
+import Login from './Login'
+import Dashboard from './Dashboard'
 
 class App extends Component  {
+  componentDidMount() {
+    this.props.dispatch(handleInitialData())
+  }
   render() {
     return (
       <Router>
+        <Fragment>
           <Header />
+          {this.props.loggedout === true
+            ? <Login />
+            : <div>
+                <Route path='/' exact component={Dashboard} />
+              </div>
+          }
+        </Fragment>
       </Router>
     );
   }
 }
 
-export default App;
+function mapStateToProps({ authedUser }) {
+  return {
+    loggedout: authedUser === null
+  }
+}
+
+export default connect(mapStateToProps)(App);

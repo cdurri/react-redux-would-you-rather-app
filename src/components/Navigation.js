@@ -4,7 +4,7 @@ import { Navbar, NavbarToggler, Nav, NavbarBrand, NavItem } from 'reactstrap'
 import { Container, Row, Col } from 'reactstrap'
 import LoggedIn from './LoggedIn'
 
-export default function Navigation () {
+const Navigation = () => {
   return (
     <Navbar color='light' className='nav'>
         <Nav>
@@ -25,7 +25,9 @@ export default function Navigation () {
           </NavItem>
         </Nav>
         <LoggedIn />
-        
+
     </Navbar>
   )
 }
+
+export default Navigation
