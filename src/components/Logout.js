@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Container, Row, Col } from 'reactstrap'
 import { setAuthedUser } from '../actions/authedUser'
 
-class LoggedIn extends Component {
+class Logout extends Component {
 
   handleLogout = (e) => {
     e.preventDefault()
@@ -12,9 +12,10 @@ class LoggedIn extends Component {
   }
 
   render() {
+
     return (
       <div className='logged-in'>
-        <span>Hello, Sarah Edo</span>
+        <span>Hello, {this.props.user}</span>
         <span>
           <img
             src='https://placeimg.com/30/30/people'
@@ -28,4 +29,11 @@ class LoggedIn extends Component {
   }
 }
 
-export default connect()(LoggedIn)
+function mapStateToProps({ authedUser }) {
+  return {
+    user: authedUser
+  }
+}
+
+
+export default connect(mapStateToProps)(Logout)
