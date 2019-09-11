@@ -3,13 +3,15 @@ import { connect } from 'react-redux'
 import { Container, Row, Col, Card, Button, CardHeader, CardBody, CardImg, CardTitle, CardText, Form, FormGroup, Label, Input } from 'reactstrap'
 import { DiReact } from 'react-icons/di'
 import Logo from '../images/react.png'
+import { Redirect } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser'
 
 class SignInCard extends Component {
 
   state = {
+    toHome: false,
     signIn: false,
-    userId: ''
+    userId: null
   }
 
   handleChange = (e) => {
@@ -23,13 +25,23 @@ class SignInCard extends Component {
   handleSignIn = (e) => {
     e.preventDefault()
 
-    this.props.dispatch(setAuthedUser(this.state.userId))
+    const { userId } = this.state
+
+    this.props.dispatch(setAuthedUser(userId))
+
+    this.setState(() => ({
+      toHome: true
+    }))
   }
 
   render() {
     const { users } = this.props
 
-    const { signIn } = this.state
+    const { signIn, toHome } = this.state
+
+    if (toHome === true) {
+      return <Redirect to='/' />
+    }
 
     return (
       <div>

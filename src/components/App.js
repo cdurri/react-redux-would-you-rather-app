@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'reactstrap'
 import '../index.css';
 import Header from './Header'
 import Login from './Login'
+import Dashboard from './Dashboard'
 
 class App extends Component  {
   componentDidMount() {
@@ -18,7 +19,9 @@ class App extends Component  {
           <Header />
           {this.props.loggedout === true
             ? <Login />
-            : <div>Signed In!</div>
+            : <div>
+                <Route path='/' exact component={Dashboard} />
+              </div>
           }
         </Fragment>
       </Router>
