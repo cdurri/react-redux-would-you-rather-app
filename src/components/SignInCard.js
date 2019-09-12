@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container, Row, Col, Card, Button, CardHeader, CardBody, CardImg, CardTitle, CardText, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Avatar } from '@material-ui/core'
 import { DiReact } from 'react-icons/di'
 import Logo from '../images/react.png'
 import { Redirect } from 'react-router-dom'
@@ -61,10 +62,8 @@ class SignInCard extends Component {
                     <Input type='select' name='select' id='selectUser' onChange={this.handleChange}>
                       <option value=''>Select User</option>
                       {users.map((user) => (
-                        <option key={user.id} value={user.id}>
-                          <img
-                            src={user.avatar} /* todo: come back  to get avatar to show properly */
-                          />
+                        <option key={user.id} value={user.id} style={{ backgroundImage: `url(${user.avatar})`}}>
+                          {/* todo: come back to adding avatar to select dropdown options */}
                           {user.name}
                         </option>
                       ))}
@@ -86,7 +85,6 @@ function mapStateToProps({ users }) {
   return {
     users: Object.keys(users)
       .map((user) => ({
-        user,
         avatar: users[user].avatarURL,
         name: users[user].name,
         id: users[user].id
