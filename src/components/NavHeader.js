@@ -4,10 +4,8 @@ import { Container, Row, Col } from 'reactstrap'
 
 const Header = () => {
   return (
-    <div className='header'>
-      <Container>
-        <Navigation />
-      </Container>
+    <div className='nav-header'>
+      <Navigation />
     </div>
   )
 }

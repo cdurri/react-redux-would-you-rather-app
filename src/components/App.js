@@ -4,19 +4,21 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import { Container, Row, Col } from 'reactstrap'
 import '../index.css';
-import Header from './Header'
+import NavHeader from './NavHeader'
 import Login from './Login'
 import Dashboard from './Dashboard'
 
 class App extends Component  {
+  
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
+
   render() {
     return (
       <Router>
         <Fragment>
-          <Header />
+          <NavHeader />
           {this.props.loggedout === true
             ? <Login />
             : <div>
