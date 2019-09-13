@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { TabContent, TabPane, Nav, NavItem, NavLink, ListGroup, ListGroupItem, Container, Row, Col } from 'reactstrap'
 import classnames from 'classnames'
+import QuestionCard from './QuestionCard'
 
 class Dashboard extends Component {
 
@@ -50,7 +51,9 @@ class Dashboard extends Component {
                   <Col sm='12'>
                     <ListGroup>
                       {numbers.map(num => (
-                        <ListGroupItem>{num}</ListGroupItem>
+                        <ListGroupItem>
+                          <QuestionCard />
+                        </ListGroupItem>
                       ))}
                     </ListGroup>
                   </Col>
