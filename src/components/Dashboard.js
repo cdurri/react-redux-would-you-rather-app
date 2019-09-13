@@ -18,6 +18,9 @@ class Dashboard extends Component {
   }
 
   render() {
+
+    const numbers = [1, 2, 3, 4, 5]
+
     return (
       <div>
       <Container>
@@ -46,20 +49,23 @@ class Dashboard extends Component {
                 <Row>
                   <Col sm='12'>
                     <ListGroup>
-                        <ListGroupItem>1</ListGroupItem>
-                        <ListGroupItem>2</ListGroupItem>
-                        <ListGroupItem>3</ListGroupItem>
+                      {numbers.map(num => (
+                        <ListGroupItem>{num}</ListGroupItem>
+                      ))}
                     </ListGroup>
                   </Col>
                 </Row>
               </TabPane>
               <TabPane tabId='2'>
-
-                <ListGroup>
-                    <ListGroupItem>4</ListGroupItem>
-                    <ListGroupItem>5</ListGroupItem>
-                    <ListGroupItem>6</ListGroupItem>
-                </ListGroup>
+                <Row>
+                  <Col sm='12'>
+                    <ListGroup>
+                      {numbers.map(num => (
+                        <ListGroupItem>{num * 2}</ListGroupItem>
+                      ))}
+                    </ListGroup>
+                  </Col>
+                </Row>
               </TabPane>
             </TabContent>
           </Col>
