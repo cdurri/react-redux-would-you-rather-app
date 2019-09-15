@@ -5,7 +5,7 @@ import { Avatar } from '@material-ui/core'
 
 const QuestionCard = props => {
 
-  const { author, avatar } = props
+  const { author, avatar, pollPreview } = props
 
   return (
     <div>
@@ -28,7 +28,7 @@ const QuestionCard = props => {
                   <Col>
                     <CardTitle>Would you rather</CardTitle>
                     <CardText>
-                      become a superhero
+                      {pollPreview}
                     </CardText>
                     <Button>View Poll</Button>
                   </Col>
@@ -45,10 +45,12 @@ const QuestionCard = props => {
 
 function mapStateToProps({ questions, users }, { id }) {
   const user = questions[id].author
+  const pollPreview = questions[id].optionOne.text
 
   return {
     author: user,
-    avatar: users[user].avatarURL
+    avatar: users[user].avatarURL,
+    pollPreview: pollPreview
   }
 }
 
