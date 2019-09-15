@@ -5,11 +5,7 @@ import { Avatar } from '@material-ui/core'
 
 const QuestionCard = props => {
 
-  const { id } = props
-
-  const { author } = props
-
-  console.log(props.question)
+  const { author, avatar } = props
 
   return (
     <div>
@@ -24,7 +20,7 @@ const QuestionCard = props => {
                 <Row>
                   <Col>
                     <Avatar
-                      src='https://tylermcginnis.com/would-you-rather/sarah.jpg'
+                      src={avatar}
                       className='unanswered-questions-avatar'
                       alt='User avatar'
                     />
@@ -48,8 +44,11 @@ const QuestionCard = props => {
 
 
 function mapStateToProps({ questions, users }, { id }) {
+  const user = questions[id].author
+
   return {
-    author: questions[id].author
+    author: user,
+    avatar: users[user].avatarURL
   }
 }
 
