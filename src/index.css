@@ -69,3 +69,35 @@ body {
   border: 0;
   background: #3ECEA7;
 }
+
+.questions-list {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.question-card__options-preview {
+  border-left: 1px solid lightgray;
+}
+
+.question-card__title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.question-card__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-card .question-card__avatar-image {
+  width: 125px;
+  height: 125px;
+}
+
+.question-card__view-poll-btn {
+  width: 100%;
+  color: #3ECEA7;
+  background: transparent;
+  border: 2px solid #3ECEA7;
+}
