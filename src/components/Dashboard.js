@@ -24,7 +24,7 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <Container>
+        <Container className='questions-list'>
           <Row>
             <Col sm="12" md={{ size: 8, offset: 2}}>
               <Nav tabs>

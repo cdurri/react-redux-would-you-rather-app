@@ -26,7 +26,7 @@ const QuestionCard = props => {
                     />
                   </Col>
                   <Col sm='8' className='question-card__options-preview'>
-                    <CardTitle>Would you rather</CardTitle>
+                    <CardTitle className='question-card__title'>Would you rather</CardTitle>
                     <CardText>
                       {optionOne}
                     </CardText>
