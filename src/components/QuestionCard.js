@@ -18,14 +18,14 @@ const QuestionCard = props => {
               </CardHeader>
               <CardBody>
                 <Row>
-                  <Col>
+                  <Col sm='4' className='question-card__avatar'>
                     <Avatar
                       src={avatar}
-                      className='unanswered-questions-avatar'
+                      className='question-card__avatar-image'
                       alt='User avatar'
                     />
                   </Col>
-                  <Col>
+                  <Col sm='8' className='question-card__options-preview'>
                     <CardTitle>Would you rather</CardTitle>
                     <CardText>
                       {optionOne}
@@ -33,7 +33,7 @@ const QuestionCard = props => {
                     <CardText>
                       {optionTwo}
                     </CardText>
-                    <Button>View Poll</Button>
+                    <Button className='question-card__view-poll-btn'>View Poll</Button>
                   </Col>
                 </Row>
               </CardBody>
@@ -52,7 +52,7 @@ function mapStateToProps({ questions, users }, { id }) {
   const optionTwo = questions[id].optionTwo.text
 
   return {
-    author: user,
+    author: users[user].name,
     avatar: users[user].avatarURL,
     optionOne: optionOne,
     optionTwo: optionTwo
