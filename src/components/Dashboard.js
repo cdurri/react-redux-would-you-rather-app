@@ -19,13 +19,7 @@ class Dashboard extends Component {
   }
 
   render() {
-
-    const numbers = [1, 2, 3, 4, 5]
-
-    console.log(this.props.unansweredQuestions)
-
     return (
-
       <div>
         <Container className='questions-list'>
           <Row>
@@ -93,7 +87,6 @@ function mapStateToProps({ questions, users, authedUser }) {
       .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
     answeredQuestions: Object.keys(users[authedUser].answers)
       .map((answer) => answer),
-
     unansweredQuestions: Object.keys(questions)
       .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
       .filter((id) => questions[id].optionOne.votes.indexOf(authedUser) === -1
