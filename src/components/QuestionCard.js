@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { Container, Row, Col, Card, Button, CardHeader, CardBody, CardImg, CardTitle, CardText, Form, FormGroup, Label, Input } from 'reactstrap'
 import { Avatar } from '@material-ui/core'
+import PollPage from './PollPage'
 
 const QuestionCard = props => {
 
@@ -33,7 +35,11 @@ const QuestionCard = props => {
                     <CardText>
                       {optionTwo}
                     </CardText>
-                    <Button className='question-card__view-poll-btn'>View Poll</Button>
+                    <Link to={`/poll-page`} component={Link}>
+                      <Button  className='question-card__view-poll-btn'>
+                        View Poll
+                      </Button>
+                    </Link>
                   </Col>
                 </Row>
               </CardBody>
