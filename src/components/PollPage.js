@@ -14,19 +14,19 @@ const PollPage = props => {
     return (
 
       <div>
-        <Container>
+        <Container className='poll-card'>
           <Row>
-            <Col sm="12" md={{ size: 12, offset: 0}}>
+            <Col sm="12" md={{ size: 8, offset: 2}}>
               <Card className='question-card'>
                 <CardHeader>
                   {author} asks:
                 </CardHeader>
                 <CardBody>
                   <Row>
-                    <Col sm='4' className='question-card__avatar'>
+                    <Col sm='4' className='poll-card__avatar'>
                       <Avatar
                         src={avatar}
-                        className='question-card__avatar-image'
+                        className='poll-card__avatar-image'
                         alt='User avatar'
                       />
                     </Col>
