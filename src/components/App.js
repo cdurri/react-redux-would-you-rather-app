@@ -24,7 +24,7 @@ class App extends Component  {
             ? <Login />
             : <div>
                 <Route path='/' exact component={Dashboard} />
-                <Route path='/poll-page' exact component={PollPage} />
+                <Route path='/poll-page/:id' exact component={PollPage} />
               </div>
           }
         </Fragment>

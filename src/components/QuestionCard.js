@@ -7,7 +7,7 @@ import PollPage from './PollPage'
 
 const QuestionCard = props => {
 
-  const { author, avatar, optionOne, optionTwo } = props
+  const { author, avatar, optionOne, optionTwo, id } = props
 
   return (
     <div>
@@ -35,7 +35,7 @@ const QuestionCard = props => {
                     <CardText>
                       {optionTwo}
                     </CardText>
-                    <Link to={`/poll-page`} component={Link}>
+                    <Link to={`/poll-page/${id}`} component={Link}>
                       <Button  className='question-card__view-poll-btn'>
                         View Poll
                       </Button>
