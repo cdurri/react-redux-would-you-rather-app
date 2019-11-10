@@ -2,26 +2,40 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container, Row, Col, Card, Button, CardHeader, CardBody, CardImg, CardTitle, CardText, Form, FormGroup, Label, Input } from 'reactstrap'
 import { Avatar } from '@material-ui/core'
+import {  handleAddQuestionAnswer } from '../actions/questions'
 
 class PollPage extends Component {
 
     state = {
-      submit: false
+      submit: false,
+      answer: null
     }
 
     handleChange = (e) => {
-      this.setState({submit: true})
+      this.setState({submit: true, answer: e.target.value})
+    }
+
+    handleSubmit = (e) => {
+      console.log('Submit clicked')
+      e.preventDefault()
+
+      const { answer } = this.state
+      const { dispatch, user, id } = this.props
+
+      console.log(answer)
+      console.log(user)
+
+      dispatch(handleAddQuestionAnswer({
+        id,
+        answer,
+        user
+      }))
     }
 
     render() {
 
       const { author, avatar, optionOne, optionTwo, id } = this.props
-
       const { submit } = this.state
-
-      console.log('ID: ', id)
-      console.log('OptionOne: ', optionOne)
-      console.log('OptionTwo: ', optionTwo)
 
       return (
         <div>
@@ -43,25 +57,25 @@ class PollPage extends Component {
                       </Col>
                       <Col sm='8' className='question-card__options-preview'>
                         <CardTitle className='question-card__title'>Would you rather</CardTitle>
-                        <Form>
-                          <FormGroup tag='fieldset'>
+                        <Form onSubmit={this.handleSubmit}>
+                          <FormGroup tag='fieldset' onChange={this.handleChange}>
                             <FormGroup check>
                               <Label check>
-                                <Input type='radio' name='radio1' onChange={this.handleChange} />{' '}
+                                <Input type='radio' name='radio1' value='optionOne' />{' '}
                                   {optionOne}
                               </Label>
                             </FormGroup>
                             <FormGroup check>
                               <Label check>
-                                <Input type='radio' name='radio1' onChange={this.handleChange} />{' '}
+                                <Input type='radio' name='radio1' value='optionTwo' />{' '}
                                   {optionTwo}
                               </Label>
                             </FormGroup>
                           </FormGroup>
+                          <Button type='submit' className='question-card__view-poll-btn' disabled={submit === false}>
+                            Submit
+                          </Button>
                         </Form>
-                        <Button className='question-card__view-poll-btn' disabled={submit === false}>
-                          Submit
-                        </Button>
                       </Col>
                     </Row>
                   </CardBody>
@@ -74,7 +88,7 @@ class PollPage extends Component {
   }
 }
 
-function mapStateToProps({ questions, users }, props) {
+function mapStateToProps({ authedUser, questions, users }, props) {
 
   const { id } = props.match.params
 
@@ -88,7 +102,8 @@ function mapStateToProps({ questions, users }, props) {
     author: users[user].name,
     avatar: users[user].avatarURL,
     optionOne: optionOne,
-    optionTwo: optionTwo
+    optionTwo: optionTwo,
+    user: authedUser
   }
 }
 
