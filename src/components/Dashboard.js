@@ -47,7 +47,7 @@ class Dashboard extends Component {
                   <Row>
                     <Col sm='12'>
                       <ListGroup>
-                        {this.props.answeredQuestions.map((id) => (
+                        {this.props.unansweredQuestions.map((id) => (
                           <ListGroupItem key={id}>
                             <QuestionCard id={id} />
                           </ListGroupItem>
@@ -60,7 +60,7 @@ class Dashboard extends Component {
                   <Row>
                     <Col sm='12'>
                       <ListGroup>
-                        {this.props.unansweredQuestions.map((id) => (
+                        {this.props.answeredQuestions.map((id) => (
                           <ListGroupItem key={id}>
                             <QuestionCard id={id} />
                           </ListGroupItem>

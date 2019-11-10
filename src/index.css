@@ -75,6 +75,10 @@ body {
   margin-bottom: 20px;
 }
 
+.poll-card {
+  margin-top: 20px;
+}
+
 .question-card__options-preview {
   border-left: 1px solid lightgray;
 }
@@ -93,6 +97,11 @@ body {
 .question-card .question-card__avatar-image {
   width: 125px;
   height: 125px;
+}
+
+.poll-card .poll-card__avatar-image {
+  width: 175px;
+  height: 175px;
 }
 
 .question-card__view-poll-btn {

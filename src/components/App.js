@@ -7,9 +7,10 @@ import '../index.css';
 import NavHeader from './NavHeader'
 import Login from './Login'
 import Dashboard from './Dashboard'
+import PollPage from './PollPage'
 
 class App extends Component  {
-  
+
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
@@ -23,6 +24,7 @@ class App extends Component  {
             ? <Login />
             : <div>
                 <Route path='/' exact component={Dashboard} />
+                <Route path='/poll-page/:id' exact component={PollPage} />
               </div>
           }
         </Fragment>
